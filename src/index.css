@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  background-color: #030712;
+  color: #E5E7EB;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #030712;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #7C3AED, #A855F7);
+  border-radius: 8px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@layer components {
+  /* Glassmorphism card */
+  .glass-card {
+    @apply relative rounded-2xl border border-border bg-card/60 backdrop-blur-xl shadow-soft;
+  }
+
+  /* Section wrapper */
+  .section {
+    @apply relative mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-12;
+  }
+
+  /* Eyebrow / badge */
+  .badge-pill {
+    @apply inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent;
+  }
+
+  /* Gradient heading text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent;
+  }
+
+  /* Neon glowing primary button */
+  .btn-neon {
+    @apply relative inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-7 py-3 text-sm font-semibold text-white shadow-glow transition-all duration-300 hover:shadow-glow-lg hover:scale-[1.03] active:scale-[0.98];
+  }
+
+  /* Outline button */
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-border bg-white/5 px-7 py-3 text-sm font-semibold text-gray-100 backdrop-blur-md transition-all duration-300 hover:border-primary/60 hover:bg-primary/10 hover:scale-[1.03] active:scale-[0.98];
+  }
+
+  /* Section title with eyebrow */
+  .section-title {
+    @apply text-3xl font-bold sm:text-4xl lg:text-5xl;
+  }
+
+  /* Icon button (socials) */
+  .icon-btn {
+    @apply flex h-11 w-11 items-center justify-center rounded-full border border-border bg-white/5 text-gray-300 backdrop-blur-md transition-all duration-300 hover:border-primary/60 hover:text-white hover:shadow-glow;
+  }
+}
